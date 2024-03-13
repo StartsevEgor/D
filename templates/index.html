@@ -3,15 +3,23 @@
 {% block content %}
 <h2>И на Марсе будут яблони цвести!</h2>
 <h1>Works log</h1>
-{% for item in news%}
-<div class="col-md6 border rounded">
-    <h2>{{item.title}}</h2>
-    <div>
-        {{item.content}}
-    </div>
-    <div>
-        Автор - {{item.user.name}}, Дата написания - {{item.created_date}}
-    </div>
-</div>
+{% for item in jobs %}
+    <a>Action # {{ loop.index }}</a>
+    <table>
+        <tr>
+            <th>Название работы</th>
+            <th>Лидер команды</th>
+            <th>Продолжительность</th>
+            <th>Список команды</th>
+            <th>Статус</th>
+        </tr>
+        <tr>
+            <td>{{ item.job }}</td>
+            <td>{{ item.team_leader.name }}</td>
+            <td>{{ item.work_size }}</td>
+            <td>{{ item.collaborators }}</td>
+            <td>{% if item.is_finished == 0 %} Не завершена {% else %} Завершена {% endif %}</td>
+        </tr>
+    </table>
 {% endfor %}
 {% endblock %}
