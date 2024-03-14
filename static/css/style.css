@@ -8,3 +8,8 @@ table {
 h1 {
     size: 20
 }
+
+a {
+    background:  radial-gradient(farthest-corner at 50% 50%, white, #DCECF8);
+    text-align: central;
+}
